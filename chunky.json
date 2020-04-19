@@ -6,9 +6,7 @@
   "androidSdkDir": "~/Library/Android/sdk",
   "app": {
     "start": {
-      "stack": [
-        "intro"
-      ]
+      "stack": ["intro", "download"]
     }
   },
   "transitions": ["replace://start"],
@@ -34,7 +32,7 @@
     "statusBarLight": false,
     "navigationColor": "#FFFFFF",
     "navigationTintColor": "#37474F",
-    "nanvigationTextButton": "#FFFFFF",
+    "navigationTextButton": "#FFFFFF",
     "backgroundColor": "#999999",
     "footerTintColor": "#CFD8DC",
     "footerHeaderColor": "#90A4AE",
@@ -54,9 +52,7 @@
     ]
   },
   "scripts": {
-    "web": [
-      "https://unpkg.com/antd@4.0.2/dist/antd.js"
-    ]
+    "web": ["https://unpkg.com/antd@4.0.2/dist/antd.js"]
   },
   "info": {
     "copyright": "© 2020",
