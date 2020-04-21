@@ -14,10 +14,6 @@ export default class DownloadScreen extends Screen {
   }
 
   components() {
-    return super.components()
-  }
-
-  render() {
-    return <Download />
+    return super.components().concat(<Download />)
   }
 }

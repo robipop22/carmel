@@ -1,6 +1,6 @@
 import React from 'react'
 
-const WindowsIcon = () => (
+const WindowsIcon = ({ fill }) => (
   <svg
     width="24"
     height="24"
@@ -10,7 +10,7 @@ const WindowsIcon = () => (
   >
     <path
       d="M0 3.449L9.75 2.1V11.551H0V3.449ZM10.949 1.949L24 0V11.4H10.949V1.949ZM0 12.6H9.75V22.051L0 20.699V12.6ZM10.949 12.6H24V24L11.1 22.199"
-      fill="#253136"
+      fill={`${fill ? fill : '#253136'}`}
     />
   </svg>
 )

@@ -26,20 +26,12 @@ const getOs = () => {
   return os
 }
 
-const spanCommonStyle = (selected) => ({
-  cursor: 'pointer',
-  fontSize: '1.5rem',
-  margin: '1rem',
-  color: `${selected ? '#028596' : 'inherit'}`,
-})
-
 const DownloadSection = () => {
   const [os, setOs] = useState(getOs())
   return (
     <div
       style={{
-        width: '100vw',
-        height: '100vh',
+        backgroundSize: 'cover',
         backgroundImage: 'url(../../../assets/download-2nd-section.r.png)',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -53,7 +45,7 @@ const DownloadSection = () => {
       <Typography
         use="headline2"
         style={{
-          color: '#E36402',
+          color: '#262626',
           zIndex: 2,
           fontWeight: 'bold',
         }}
@@ -70,42 +62,79 @@ const DownloadSection = () => {
       >
         {os ? (
           <>
-            <span style={spanCommonStyle(os === 'windows')}>
-              Windows <WindowsIcon />{' '}
+            <span
+              onClick={() => setOs('windows')}
+              className={os === 'windows' ? 'selected' : ''}
+            >
+              Windows{' '}
+              <WindowsIcon fill={os === 'windows' ? '#028596' : '#253136'} />{' '}
             </span>
-            <span style={spanCommonStyle(os === 'mac')}>
-              Mac <MacIcon />
+            <span
+              onClick={() => setOs('mac')}
+              className={os === 'mac' ? 'selected' : ''}
+            >
+              Mac <MacIcon fill={os === 'mac' ? '#028596' : '#253136'} />
             </span>
-            <span style={spanCommonStyle(os === 'linux')}>
-              Linux <LinuxIcon />
+            <span
+              onClick={() => setOs('linux')}
+              className={os === 'linux' ? 'selected' : ''}
+            >
+              Linux <LinuxIcon fill={os === 'linux' ? '#028596' : '#253136'} />
             </span>
+            <style jsx>
+              {`
+                .selected {
+                  color: #028596;
+                }
+                span {
+                  cursor: pointer;
+                  font-size: 1.5rem;
+                  margin: 1rem;
+                }
+                span:hover {
+                  color: #02bdd5;
+                }
+              `}
+            </style>
           </>
         ) : (
           <span>
             You need to download the studio from a Laptop running Mac, Windows
             or Linux
+            <style jsx>
+              {`
+                span {
+                  cursor: default;
+                  font-size: 1.5rem;
+                  margin: 1rem;
+                  color: #4e4e4e;
+                }
+              `}
+            </style>
           </span>
         )}
       </div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          paddingTop: '2rem',
-        }}
-      >
-        <Button
-          onClick={() => {}}
-          raised
+      {os && (
+        <div
           style={{
-            backgroundColor: '#E36402',
-            borderRadius: '7px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            paddingTop: '2rem',
           }}
         >
-          Download
-        </Button>
-      </div>
+          <Button
+            onClick={() => {}}
+            raised
+            style={{
+              backgroundColor: '#E36402',
+              borderRadius: '7px',
+            }}
+          >
+            Download
+          </Button>
+        </div>
+      )}
     </div>
   )
 }
