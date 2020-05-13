@@ -1,7 +1,7 @@
 const Session = require('./Session')
 const Commander = require('./Commander')
 
-class _ {
+export class Plugin {
     constructor(props) {
         this._props = Object.assign({}, props)
         this._props.session = Object.assign({}, { name: "carmel" }, props.session)
@@ -51,6 +51,7 @@ class _ {
                 .then(() => Commander.run(this.command, this.session))
                 .then(() => this.session.close())
                 .catch((e) => {
+                    console.log(e)
                     this.session.logger.error(e)
                     resolve()
                 })   
@@ -62,5 +63,3 @@ class _ {
 _.ERRORS = {
     CANNOT_LOAD: (reason) => reason ? `Cannot load plugin because ${reason}` : `Cannot load plugin`
 }
-
-module.exports = _

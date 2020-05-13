@@ -45,31 +45,29 @@ engines:
       - javascript
 ratings:
   paths:
-  - blockchain/src/**/*
-  - cli/src/**/*
-  - cloud/src/**/*
-  - desktop/src/**/*
-  - sdk/src/**/*
-  - web/src/**/*
-exclude_paths:
-- package.json
-- .circleci/**/*
-- .codeclimate.yml
-- .es*
-- .gitignore
-- .npmignore
+  - "sdk/src/**/*.ts"
+  - "stacks/react/src/**/*.ts"
+exclude_patterns:
+- "**/*.js"
+- "**/*.json"
+- "**/*.md"
+- "**/*.png"
+- "**/*.gif"
+- "**/*.d.ts"
+- ".*"
 - LICENSE
-- README.md
-- logo.gif
-- assets/**/*
-- assets/eos/**/*
-- logo.png
-- lib/**/*
-- docs/**/*
-- blockchain/test/**/*
-- blockchain/eos/**/*
-- cli/test/**/*
-- cloud/test/**/*
-- desktop/test/**/*
-- sdk/test/**/*
-- web/test/**/*
+- .github/
+- .circleci/
+- assets/
+- blockchain/
+- builds/
+- chunks/
+- cli/
+- cloud/
+- desktop/
+- fluid/
+- "!sdk/src/**/*.ts"
+- stacks/
+- templates/
+- web/
+
